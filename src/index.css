@@ -294,7 +294,8 @@ header {
     border-radius: 20px;
 }
 
-.modal-video {
+.modal-video,
+.iframe-container iframe {
     position: absolute;
     top: 0;
     left: 0;
