@@ -51,7 +51,7 @@ function App() {
 
       <main className="container">
         {/* Ad Section */}
-        <section className="ad-section fadeIn">
+        <section className="ad-section">
           <h2 className="section-title">شعار <span className="text-gradient">المخيم</span></h2>
           <div className="video-container-placeholder">
             <button onClick={openModal} className="watch-btn">
@@ -61,7 +61,7 @@ function App() {
         </section>
 
         {/* Chants Section */}
-        <section className="chants-section fadeIn">
+        <section className="chants-section">
           <h2 className="section-title">صيحات <span className="text-gradient">الطريق</span></h2>
           
           <div className="chants-grid">

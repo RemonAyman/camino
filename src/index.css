@@ -146,8 +146,8 @@ header {
     padding: 120px 0 60px;
     text-align: center;
     position: relative;
-    z-index: 10;
-    min-height: 300px;
+    z-index: 20; /* Ensure it's on top */
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -162,7 +162,8 @@ header {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 60px;
-    animation: fadeIn 1s ease-out forwards;
+    opacity: 1 !important; /* Force visibility */
+    transform: none !important; /* Force position */
 }
 
 .chants-grid {
