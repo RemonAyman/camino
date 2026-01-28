@@ -17,4 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
             heroText.style.opacity = 1 - (scrollValue / 500);
         }
     });
+
+    // Modal Logic
+    const modal = document.getElementById('videoModal');
+    const btn = document.getElementById('openModalBtn');
+    const closeBtn = document.querySelector('.close-modal');
+    const video = document.getElementById('modalVideo');
+
+    if (btn) {
+        btn.onclick = function() {
+            modal.style.display = "block";
+            video.currentTime = 0; // Reset video
+            video.play();
+        }
+    }
+
+    if (closeBtn) {
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+            video.pause();
+        }
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            video.pause();
+        }
+    }
 });

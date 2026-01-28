@@ -44,12 +44,10 @@
         <!-- Ad/Announcement Section -->
         <section class="ad-section">
             <h2 class="section-title">شعار <span class="text-gradient">المخيم</span></h2>
-            <div class="video-container glass-card">
-                <video controls class="ad-video" poster="000.png" preload="metadata">
-                    <source src="/assets/camp_video.mp4" type="video/mp4">
-                    <source src="assets/camp_video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <div class="video-container-placeholder">
+                <button id="openModalBtn" class="watch-btn">
+                    <span class="icon">▶</span> شاهد شعار المخيم
+                </button>
             </div>
         </section>
 
@@ -87,6 +85,20 @@
     <footer>
         <p>© ٢٠٢٦ مجموعة جنود المسيح الكشفية - جميع الحقوق محفوظة</p>
     </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="iframe-container">
+                <video id="modalVideo" controls class="modal-video" poster="000.png" preload="metadata">
+                    <source src="/assets/camp_video.mp4" type="video/mp4">
+                    <source src="assets/camp_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
