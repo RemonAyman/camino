@@ -33,6 +33,10 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
+.fadeIn {
+    animation: fadeIn 1s ease-out forwards;
+}
+
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
@@ -137,16 +141,28 @@ header {
     60% {transform: translateX(-50%) translateY(-5px);}
 }
 
+/* Ad/Video Section */
+.ad-section {
+    padding: 120px 0 60px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /* Chants Section */
 .chants-section {
-    padding: 100px 0;
+    padding: 60px 0 120px;
 }
 
 .section-title {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 60px;
-    animation: fadeIn 1s ease-out;
+    animation: fadeIn 1s ease-out forwards;
 }
 
 .chants-grid {
