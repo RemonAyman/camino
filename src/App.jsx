@@ -4,7 +4,7 @@ import './index.css'
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
-  const [showWelcome, setShowWelcome] = useState(true)
+  const [currentStep, setCurrentStep] = useState('welcome') // 'welcome' | 'ad' | 'main'
   const [isExiting, setIsExiting] = useState(false)
 
   useEffect(() => {
@@ -23,22 +23,47 @@ function App() {
     setIsModalOpen(false)
   }
 
-  const handleEnter = () => {
+  const handleNextStep = (next) => {
     setIsExiting(true)
     setTimeout(() => {
-      setShowWelcome(false)
-    }, 800) // Matches CSS animation duration
+      setCurrentStep(next)
+      setIsExiting(false)
+    }, 800)
   }
 
-  if (showWelcome) {
+  if (currentStep === 'welcome') {
     return (
       <div className={`welcome-page ${isExiting ? 'fade-exit' : ''}`} dir="rtl">
         <div className="welcome-content">
           <h1 className="welcome-title">رهط 3 <span className="text-gradient">Camino</span> يرحب بيكم في موقعنا</h1>
           <p className="welcome-subtitle">لو عايز تعرف احنا عاملين اى اضغط هنا</p>
-          <button className="cta-button" onClick={handleEnter}>
+          <button className="cta-button" onClick={() => handleNextStep('ad')}>
             اضغط هنا
             <span style={{ fontSize: '1.2em' }}>✨</span>
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  if (currentStep === 'ad') {
+    return (
+      <div className={`ad-page ${isExiting ? 'fade-exit' : ''}`} dir="rtl">
+        <div className="ad-container-content">
+          <h1 className="welcome-title">الأعلان</h1>
+          <div className="video-player-container">
+            <video 
+              controls 
+              autoPlay 
+              className="ad-video"
+              src="/final.mp4"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <button className="cta-button" style={{ marginTop: '40px' }} onClick={() => handleNextStep('main')}>
+            التالي
+            <span style={{ fontSize: '1.2em' }}>➡️</span>
           </button>
         </div>
       </div>
