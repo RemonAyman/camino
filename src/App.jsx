@@ -4,6 +4,8 @@ import './index.css'
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
+  const [showWelcome, setShowWelcome] = useState(true)
+  const [isExiting, setIsExiting] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
@@ -21,11 +23,33 @@ function App() {
     setIsModalOpen(false)
   }
 
+  const handleEnter = () => {
+    setIsExiting(true)
+    setTimeout(() => {
+      setShowWelcome(false)
+    }, 800) // Matches CSS animation duration
+  }
+
+  if (showWelcome) {
+    return (
+      <div className={`welcome-page ${isExiting ? 'fade-exit' : ''}`} dir="rtl">
+        <div className="welcome-content">
+          <h1 className="welcome-title">رهط 3 <span className="text-gradient">Camino</span> يرحب بيكم في موقعنا</h1>
+          <p className="welcome-subtitle">لو عايز تعرف احنا عاملين اى اضغط هنا</p>
+          <button className="cta-button" onClick={handleEnter}>
+            اضغط هنا
+            <span style={{ fontSize: '1.2em' }}>✨</span>
+          </button>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="app-container">
       <header className="container">
         <div className="logo-container">
-          <img src="/logo.png" alt="Soldiers of Christ Logo" className="main-logo" />
+          <img src="/logo.png" alt="Camino Logo" className="main-logo" />
           <img src="/camp_logo.jpg" alt="Camp Logo" className="camp-logo" />
         </div>
         

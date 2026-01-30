@@ -22,8 +22,14 @@ body {
     font-family: var(--font-body);
     overflow-x: hidden;
     background-image: 
+        linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)),
+        url('/logo.png'),
         radial-gradient(circle at 10% 20%, rgba(46, 125, 50, 0.4) 0%, transparent 40%),
         radial-gradient(circle at 90% 80%, rgba(245, 127, 23, 0.3) 0%, transparent 40%);
+    background-size: cover, 60%, auto, auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     min-height: 100vh;
 }
 
@@ -366,5 +372,96 @@ footer {
 
     .modal-content {
         width: 95%;
+    }
+}
+
+/* Welcome Page Styles */
+.welcome-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--dark-bg);
+    background-image: 
+        linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)),
+        url('/logo.png'),
+        radial-gradient(circle at 10% 20%, rgba(46, 125, 50, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(245, 127, 23, 0.3) 0%, transparent 40%);
+    background-size: cover, 70%, auto, auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.welcome-content {
+    max-width: 800px;
+    animation: fadeIn 1.2s ease-out;
+}
+
+.welcome-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--light-text);
+    line-height: 1.2;
+}
+
+.welcome-subtitle {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.cta-button {
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--dark-bg);
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-radius: 60px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(245, 127, 23, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: var(--font-heading);
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cta-button:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 15px 40px rgba(245, 127, 23, 0.6);
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+}
+
+@keyframes slideOut {
+    to { transform: translateY(-100%); opacity: 0; }
+}
+
+.fade-exit {
+    animation: slideOut 0.8s ease-in forwards;
+}
+
+@media (max-width: 768px) {
+    .welcome-title {
+        font-size: 2.2rem;
+    }
+    .welcome-subtitle {
+        font-size: 1.3rem;
+    }
+    .cta-button {
+        padding: 15px 35px;
+        font-size: 1.2rem;
     }
 }
