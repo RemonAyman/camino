@@ -56,7 +56,7 @@ function App() {
               controls 
               autoPlay 
               className="ad-video"
-              src="/final.mp4"
+              src="https://res.cloudinary.com/dynfn8jeb/video/upload/final_dnqvak.mp4"
             >
               Your browser does not support the video tag.
             </video>
@@ -147,16 +147,14 @@ function App() {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <span className="close-modal" onClick={closeModal}>&times;</span>
             <div className="iframe-container">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/51sG0DDjd1Y?autoplay=1"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+              <video 
+                controls 
+                autoPlay 
                 className="modal-video"
-              ></iframe>
+                src="https://res.cloudinary.com/dynfn8jeb/video/upload/WhatsApp_Video_2026-01-28_at_15.13.19_n3kk72.mp4"
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
