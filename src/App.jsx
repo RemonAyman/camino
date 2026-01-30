@@ -35,7 +35,7 @@ function App() {
     return (
       <div className={`welcome-page ${isExiting ? 'fade-exit' : ''}`} dir="rtl">
         <div className="welcome-content">
-          <h1 className="welcome-title">رهط 3 <span className="text-gradient">Camino</span> يرحب بيكم في موقعنا</h1>
+          <h1 className="welcome-title">رهط 4 <span className="text-gradient">Camino</span> يرحب بيكم في موقعنا</h1>
           <p className="welcome-subtitle">لو عايز تعرف احنا عاملين اى اضغط هنا</p>
           <button className="cta-button" onClick={() => handleNextStep('ad')}>
             اضغط هنا
@@ -124,7 +124,12 @@ function App() {
               text="كامينو يا بلاش \nوالكلبش ميلزمناش" 
               delay="0.2s" 
             />
-            <div className="chant-card add-card" style={{ animationDelay: '0.3s' }}>
+            <ChantCard 
+              title="السمر" 
+              text="كامينو كامينو ودا زفلط عارفينو\n والسمر فايزينو" 
+              delay="0.3s" 
+            />
+            <div className="chant-card add-card" style={{ animationDelay: '0.4s' }}>
               <div className="add-icon">+</div>
               <p className="add-text">إضافة صيحة جديدة</p>
             </div>
