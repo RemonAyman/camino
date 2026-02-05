@@ -2,9 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import './index.css'
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
-  const [currentStep, setCurrentStep] = useState('welcome') // 'welcome' | 'ad' | 'main'
+  const [currentStep, setCurrentStep] = useState('welcome') // 'welcome' | 'ad' | 'slogan' | 'main'
   const [isExiting, setIsExiting] = useState(false)
 
   useEffect(() => {
@@ -12,16 +11,6 @@ function App() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const openModal = () => {
-    console.log("Opening Modal...");
-    setIsModalOpen(true)
-  }
-
-  const closeModal = () => {
-    console.log("Closing Modal...");
-    setIsModalOpen(false)
-  }
 
   const handleNextStep = (next) => {
     setIsExiting(true)
@@ -57,6 +46,30 @@ function App() {
               autoPlay 
               className="ad-video"
               src="https://res.cloudinary.com/dynfn8jeb/video/upload/final_dnqvak.mp4"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <button className="cta-button" style={{ marginTop: '40px' }} onClick={() => handleNextStep('slogan')}>
+            التالي
+            <span style={{ fontSize: '1.2em' }}>➡️</span>
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  if (currentStep === 'slogan') {
+    return (
+      <div className={`ad-page ${isExiting ? 'fade-exit' : ''}`} dir="rtl">
+        <div className="ad-container-content">
+          <h1 className="welcome-title">شعار المخيم</h1>
+          <div className="video-player-container">
+            <video 
+              controls 
+              autoPlay 
+              className="ad-video"
+              src="https://res.cloudinary.com/dynfn8jeb/video/upload/WhatsApp_Video_2026-01-28_at_15.13.19_n3kk72.mp4"
             >
               Your browser does not support the video tag.
             </video>
@@ -99,18 +112,8 @@ function App() {
       </header>
 
       <main className="container">
-        {/* Ad Section */}
-        <section className="ad-section">
-          <h2 className="section-title">شعار <span className="text-gradient">المخيم</span></h2>
-          <div className="video-container-placeholder">
-            <button onClick={openModal} className="watch-btn">
-              <span className="icon">▶</span> شاهد شعار المخيم
-            </button>
-          </div>
-        </section>
-
         {/* Chants Section */}
-        <section className="chants-section">
+        <section className="chants-section" style={{ paddingTop: '60px' }}>
           <h2 className="section-title">صيحات <span className="text-gradient">الطريق</span></h2>
           
           <div className="chants-grid">
@@ -129,7 +132,19 @@ function App() {
               text="كامينو كامينو ودا زفلط عارفينو\n والسمر فايزينو" 
               delay="0.3s" 
             />
-            <div className="chant-card add-card" style={{ animationDelay: '0.4s' }}>
+            <a 
+              href="https://caminogame.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="chant-card"
+              style={{ animationDelay: '0.4s', textDecoration: 'none', display: 'block' }}
+            >
+              <h3 className="chant-title">لعبتنا</h3>
+              <p className="chant-text text-xl">
+                اضغط هنا<br/>لفتح اللعبة 🎮
+              </p>
+            </a>
+            <div className="chant-card add-card" style={{ animationDelay: '0.5s' }}>
               <div className="add-icon">+</div>
               <p className="add-text">إضافة صيحة جديدة</p>
             </div>
@@ -140,25 +155,6 @@ function App() {
       <footer>
         <p>© ٢٠٢٦ مجموعة جنود المسيح الكشفية - جميع الحقوق محفوظة</p>
       </footer>
-
-      {/* Video Modal */}
-      {isModalOpen && (
-        <div className="modal" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <span className="close-modal" onClick={closeModal}>&times;</span>
-            <div className="iframe-container">
-              <video 
-                controls 
-                autoPlay 
-                className="modal-video"
-                src="https://res.cloudinary.com/dynfn8jeb/video/upload/WhatsApp_Video_2026-01-28_at_15.13.19_n3kk72.mp4"
-              >
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
