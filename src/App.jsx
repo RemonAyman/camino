@@ -3,7 +3,7 @@ import './index.css'
 
 function App() {
   const [scrollY, setScrollY] = useState(0)
-  const [currentStep, setCurrentStep] = useState('welcome') // 'welcome' | 'ad' | 'slogan' | 'main'
+  const [currentStep, setCurrentStep] = useState('welcome') // 'welcome' | 'ad' | 'slogan' | 'hike' | 'main'
   const [isExiting, setIsExiting] = useState(false)
 
   useEffect(() => {
@@ -70,6 +70,30 @@ function App() {
               autoPlay 
               className="ad-video"
               src="https://res.cloudinary.com/dynfn8jeb/video/upload/WhatsApp_Video_2026-01-28_at_15.13.19_n3kk72.mp4"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <button className="cta-button" style={{ marginTop: '40px' }} onClick={() => handleNextStep('hike')}>
+            التالي
+            <span style={{ fontSize: '1.2em' }}>➡️</span>
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  if (currentStep === 'hike') {
+    return (
+      <div className={`ad-page ${isExiting ? 'fade-exit' : ''}`} dir="rtl">
+        <div className="ad-container-content">
+          <h1 className="welcome-title">الرحلة الخلوية</h1>
+          <div className="video-player-container">
+            <video 
+              controls 
+              autoPlay 
+              className="ad-video"
+              src="/CAMINO 3.mp4"
             >
               Your browser does not support the video tag.
             </video>
