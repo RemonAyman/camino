@@ -92,8 +92,10 @@ function App() {
             <video 
               controls 
               autoPlay 
+              muted
+              playsInline
               className="ad-video"
-              src="/CAMINO 3.mp4"
+              src="https://download1500.mediafire.com/6w6jjfua88pgT-F8cyCddqmCFESbJlDtAlKZr7PGSLIxN5dgZ9YrLVEv-xOIxIE-Q8ldbOUmZwDaJYzQQURgG2y5s6qiTprxVONfhO_7eAMgLJhO-43VidBi3gpYSNDx8iL0fPs_34sEc6wjmXDv11loiBUFcx6Ua008VpLfWkSB/xf67eh6zxjm50tv/CAMINO+3.mp4"
             >
               Your browser does not support the video tag.
             </video>
